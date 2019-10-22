@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/wkj_piano.iml" filepath="$PROJECT_DIR$/wkj_piano.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hello-world.iml" filepath="$PROJECT_DIR$/hello-world.iml" />
     </modules>
   </component>
 </project>

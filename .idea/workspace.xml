@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe81eaaa-91a2-4034-9872-8cf24fda83c8" name="Default Changelist" comment="" />
+    <list default="true" id="8a78f156-c869-473d-934b-aed28f4fc523" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3htmltabe.html" beforeDir="false" afterPath="$PROJECT_DIR$/3htmltabe.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,11 +19,15 @@
       </list>
     </option>
   </component>
-  <component name="ProjectId" id="1SYBCgCEGRLxGAqmRJ79xVQyyjn" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1SYdgKFYq2qN0nvvx9NTh32chnK" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -38,16 +46,30 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fe81eaaa-91a2-4034-9872-8cf24fda83c8" name="Default Changelist" comment="" />
-      <created>1571730523859</created>
+      <changelist id="8a78f156-c869-473d-934b-aed28f4fc523" name="Default Changelist" comment="" />
+      <created>1571744572543</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1571730523859</updated>
-      <workItem from="1571730537572" duration="4200000" />
+      <updated>1571744572543</updated>
+      <workItem from="1571744576276" duration="851000" />
+      <workItem from="1571747814106" duration="4509000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
