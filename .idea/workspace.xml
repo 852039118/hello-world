@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a78f156-c869-473d-934b-aed28f4fc523" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="fe81eaaa-91a2-4034-9872-8cf24fda83c8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3htmltabe.html" beforeDir="false" afterPath="$PROJECT_DIR$/3htmltabe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5htmlform.html" beforeDir="false" afterPath="$PROJECT_DIR$/5htmlform.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,12 +21,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1SYdgKFYq2qN0nvvx9NTh32chnK" />
+  <component name="ProjectId" id="1SYBCgCEGRLxGAqmRJ79xVQyyjn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\wkj_piano" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -46,14 +52,25 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8a78f156-c869-473d-934b-aed28f4fc523" name="Default Changelist" comment="" />
-      <created>1571744572543</created>
+      <changelist id="fe81eaaa-91a2-4034-9872-8cf24fda83c8" name="Default Changelist" comment="" />
+      <created>1571730523859</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1571744572543</updated>
-      <workItem from="1571744576276" duration="851000" />
-      <workItem from="1571747814106" duration="4509000" />
+      <updated>1571730523859</updated>
+      <workItem from="1571730537572" duration="5521000" />
+      <workItem from="1571737879756" duration="378000" />
+      <workItem from="1571738290240" duration="222000" />
+      <workItem from="1571738572608" duration="1165000" />
+      <workItem from="1571800189595" duration="8420000" />
     </task>
+    <task id="LOCAL-00001" summary="idea first">
+      <created>1571738761042</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1571738761042</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -71,5 +88,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="idea first" />
+    <option name="LAST_COMMIT_MESSAGE" value="idea first" />
   </component>
 </project>
