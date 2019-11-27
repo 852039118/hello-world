@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>a标签</title>
+    <style>
+        a.one:link{color: #b17eff;text-decoration: none;background: #4ed3ff}      /* 未访问链接*/
+        a.one:visited{color: #ff2447;text-decoration: none}   /* 已访问链接 (根据缓存判断？)*/
+        a.one:hover{color: #1f0cff;text-decoration: underline}     /* 鼠标移动到链接上 */
+        a.one:active{color: #266fff;text-decoration: underline}    /* 鼠标点击时 */
+
+        a.two:link{color: #b17eff;text-decoration: none;background: #4ed3ff}      /* 未访问链接*/
+        a.two:visited{color: #ff2447;text-decoration: none}   /* 已访问链接 (根据缓存判断？)*/
+        a.two:hover{color: #1f0cff;text-decoration: underline;font-size: 32px}     /* 鼠标移动到链接上 */
+
+        a.three:link,a.three:visited
+        {
+            display:block;
+            font-weight:bold;
+            color:#FFFFFF;
+            background-color:#98bf21;
+            width:120px;
+            text-align:center;
+            padding:4px;
+            text-decoration:none;
+        }
+        a.three:hover,a.three:active
+        {
+            background-color:#7A991A;
+        }
+    </style>
+</head>
+<body>
+    <a class="one" href="http://www.baidu.com/" target="_blank">变色吧兄嘚</a>
+    <a class="two" href="http://www.baidu.com/" target="_blank">变大吧兄嘚</a>
+    <a class="three" href="http://www.baidu.com/" target="_blank">帅的雅痞</a>
+</body>
+</html>
