@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器</title>
+    <style>
+        /*
+        * id选择器
+        * -通过元素的id属性值选中唯一的一个元素
+        * -语法：
+        *       #id属性值{}
+        */
+        #p1{
+            color: #ff203b;
+        }
+
+        /*
+        * 类选择器
+        * -通过元素的class属性值选中一组元素
+        * -语法：
+        *       .class属性值{}
+        */
+        .p2{
+            color: #c6ffab;
+        }
+        .hello{
+            font-size: 30px;
+        }
+
+        /*
+        * 选择器分组(并集选择器)
+        * -通过选择器分组可以同时选中多个选择器对应的元素
+        * -语法：
+        *       选择器1,选择器2,选择器N{}
+        */
+        #p1,.p2,.hello{
+            background-color: #FFD700;
+        }
+
+        /*
+        * 通配选择器
+        * -它可以用来选中页面中所有的元素
+        * -语法：
+        *       *{}
+        */
+       /* *{
+            color: #ff203b;
+        }*/
+
+        /*
+        * 复合选择器（交集选择器）
+        */
+        span.p3{
+            background-color: #1323ff;
+        }
+    </style>
+</head>
+<body>
+
+<p id="p1">还记得当天吉他的和弦</p>
+<!-- 可以同时为一个元素设置多个class属性值，用空格隔开-->
+<p class="p2 hello">还明白每段旋律的伏线</p>
+<p class="p2">当天街角流过你声线</p>
+<p class="p3">沿路旅程如歌褪变</p>
+<span class="p3">忘掉天地 彷佛也想不起自己</span>
+
+</body>
+</html>
