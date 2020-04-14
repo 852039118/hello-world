@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>样式的继承</title>
+</head>
+<body>
+    <!--
+        像儿子可以继承父亲的遗产一样，在CSS中，祖先元素的样式，也会被他的后代元素所继承，
+        利用继承，可以将一些基本的样式设置给祖先元素，这样所有的后代元素将会自动继承这些样式。
+
+        但是并不是所有的样式都会被子元素所继承，比如：背景相关的样式都不会被继承
+    -->
+    <!--
+        看起来背景颜色是继承了，其实是因为它们的背景颜色为透明。
+    -->
+    <div style="font-size: 30px;background-color: yellow;background-image:url('music.png') " >
+        <p>
+            我是p标签中的文字
+            <span>我是span中的文字</span>
+        </p>
+        <p>
+            我是p标签中的文字
+            <span>我是span中的文字</span>
+        </p>
+        <p>
+            我是p标签中的文字
+            <span>我是span中的文字</span>
+        </p>
+        <p>
+            我是p标签中的文字
+            <span>我是span中的文字</span>
+        </p>
+        <p>
+            我是p标签中的文字
+            <span>我是span中的文字</span>
+        </p>
+    </div>
+</body>
+</html>

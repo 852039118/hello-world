@@ -13,18 +13,47 @@
 
 <!--粗体-->
 <b>piano</b>
+<strong>piano</strong>
 
 <!--斜体-->
 <em>piano</em>
 
+<!--
+    small标签中的内容比他的父元素中的文字要小一点
+        比如：合同中的小字，网站的版权声明
+-->
+<p>我是一个段落<small>我是small标签中的内容</small></p>
+
+<!--上标-->
+<p>2<sup>2</sup></p>
+<p>张学友<sup>[<a href="#">1</a>]</sup></p>
+
 <!--下划线-->
 <u>piano</u>
+<ins>insert</ins>
 
+<!--表示删除的内容-->
 <s>piano</s>
+<del>delete</del>
+
+<!--
+    需要页面中直接编写一些代码
+    pre是一个预格式标签，会将代码中的格式保留，不会忽略多个空格
+    code专门用来表示代码
+
+    一般结合使用pre和code来表示一段代码
+-->
+<pre>
+    <code>
+        window.onload = function(){
+        alert("hello world");
+    }
+    </code>
+</pre>
 
 <!--换行-->
 <br>
-只要有电脑，只要你会打字，今天开始你就可以体验一次<b>弹钢琴</b>的感受了~
+只要有电脑，&nbsp &nbsp &nbsp只要你会打字，今天开始你就可以体验一次<b>弹钢琴</b>的感受了~
 <br>
 这是是作者用Vue + Tone.js做的一款<a href="1createhtml.html" target="_self">web应用</a>，快来和<em>朋友们</em>一起弹<u>小星星</u><s>吧</s>
 </body>
