@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件对象</title>
+    <style>
+        #areaDiv{
+            width: 400px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        #coordinate{
+            width: 400px;
+            height: 30px;
+            border: 1px solid black;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        /*
+        * 当鼠标在areaDiv中移动时，显示鼠标的坐标
+        *   onmousemove 事件会在鼠标指针在元素中移动时发生。
+        * */
+        window.onload = function () {
+            var areaDiv = document.getElementById('areaDiv');
+            var coordinate = document.getElementById('coordinate');
+
+            areaDiv.onmousemove = function (event) {
+                /*
+                * 在IE8中，响应函数被触发时，浏览器不会传递事件对象
+                *  在IE8及以下的浏览器中，是将事件对象作为window对象的属性保存的
+                * */
+                // if(!event){
+                //     event = window.event
+                // }
+                //解决兼容问题
+                event = event || window.event;  //前面如果没有event则为null，就会取后面的window.event
+                /*
+                * clientX 返回当事件被触发时，鼠标指针的水平坐标。
+                  clientY 返回当事件被触发时，鼠标指针的垂直坐标。
+                  *     但是是当前可见窗口的，而不是整个页面
+                * */
+                coordinate.innerHTML = 'X = ' + event.clientX + ', Y = ' + event.clientY
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+    <div id="areaDiv"></div>
+    <div id="coordinate"></div>
+</body>
+</html>

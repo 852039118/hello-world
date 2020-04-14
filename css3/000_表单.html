@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+</head>
+<body>
+<!--
+使用input来创建-一个文本框，它的type属性是text
+    如果希望表单项中的数据会提交到服务器中，还必须给表单项指定一个name属性
+    name表示提交内容的名字
+
+用户填写的信息会附在url地址的后边以查询字符串的形式发送给服务器
+    url地址?查询字符串
+格式:
+    属性名=属性值&属性名=属性值&属性名=属性值&属性名=属性值
+-->
+<!--
+    在html中还为我们提供了一个标签，专门用来选中表单中的提示文字的
+    label标签
+    该标签可以指定一个for属性， 该属性的值需要指定一个表单项的id值
+-->
+<label for="username">用户名</label>
+<input type="text" name="username" value="我是value" id="username">  <br><br>
+
+<input data-v-a84fd3d8="" type="checkbox" name="chkbox" id="32-1" class="color-input-red">
+<!--        <label for="password">密码</label>-->
+<!--        <input type="password" name="password" id="password">   <br><br>-->
+<!--
+提交按钮可以将表单中的信息提交给服务器
+使用input创建-一个提交按钮,它的type属性值是submit
+在提交按钮中可以通过value属性来指定按钮上的文字
+-->
+<!--        <input type="submit" value="注册">-->
+<p data-v-a84fd3d8="" class="button" type="submit">投票</p>
+
+<script type="text/javascript">
+        // $(function() {
+        //     setTimeout(function() {
+        //         var buy = document.getElementById('change').click();
+        //     }, 200);
+        // });
+        //
+        // $("#change").click(function(){
+        //     console.log("八戒你瘦了！")
+        // })
+        // document.getElementsByClassName('button').click();
+        document.getElementById('32-1').checked="checked"
+    </script>
+</body>
+</html>

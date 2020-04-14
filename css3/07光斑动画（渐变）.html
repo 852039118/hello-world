@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>光斑动画</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            background:black;
+        }
+        h1{
+            /*width: 600px;*/   /*块元素不设置宽度它就独占一行，宽度为100%*/
+            display: inline-block;
+            margin-top: 100px;
+            font: italic bold 50px "Ink Free" , "Segoe Script";
+            color: rgba(255,255,255,.3);
+            /*background: linear-gradient(90deg,red 0px,blue 50px);*/
+            background: linear-gradient(140deg,rgba(255,255,255,0) 30px,rgba(255,255,255,1) 80px,rgba(255,255,255,0) 130px) no-repeat;
+            -webkit-background-clip: text;  /*把字体背景作为字体颜色作为显示,最好先设置字体颜色为透明*/
+            /*transition: 3s;*/
+        }
+        h1:hover{
+            /*background-position: 450px;*/
+        }
+    </style>
+</head>
+<body>
+    <h1>What do you want? Boy</h1>
+    <script>
+        var h1 = document.querySelector('h1');
+        var iPosition = -50;
+        console.log(h1);
+        setInterval(function () {
+            iPosition += 5;
+            if(iPosition>450){
+                iPosition = -50
+            }
+            h1.style.backgroundPosition = iPosition + 'px';
+        },1000/60)
+
+    </script>
+</body>
+</html>

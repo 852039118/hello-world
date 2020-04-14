@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圣杯布局</title>
+    <style>
+        /*
+            1.两边固定当中自适应
+            2.当中列要完整显示
+            3.当中列要优先加载
+        */
+        /*
+        浮动:搭建完整的布局框架
+        margin 为赋值:调整旁边两列的位置(使列布局到一行上)
+        使用相对定位调整旁边两列的位置(使两列位置调整到两头)     也可以直接在middle里再套一个div-inner，把内容写在这里并给padding就行（双飞翼布局）
+
+        */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header{
+            height: 30px;
+            background-color: gray;
+            border: 1px solid black;
+        }
+        .content{
+            /*height: 100px;*/
+            background-color: yellow;
+            border: 1px solid black;
+            padding: 0 100px;
+            overflow: hidden;
+        }
+        .footer{
+            height: 30px;
+            background-color: gray;
+            border: 1px solid black;
+        }
+        .content .middle,.content .left,.content .right{    /*三列的伪等高布局*/
+            padding-bottom: 10000px;    /*内边距撑起*/
+            margin-bottom: -10000px;    /*外边距缩回来，就可以把外边框往回拉，在通过overflow：hideen就可以实现等高了*/
+            text-align: center;
+        }
+        .content .middle{
+            float: left;
+            width: 100%;
+            background-color: pink;
+        }
+        .content .left{
+            margin-left: -100%;
+            position: relative;
+            left: -100px;
+            float: left;
+            width: 100px;
+            background-color: deeppink;
+        }
+        .content .right{
+            margin-left: -200%;
+            position: relative;
+            right: -100px;
+            float: right;
+            width: 100px;
+            background-color: deeppink;
+        }
+        /* 解决高度塌陷问题 */
+        .clearfix{
+            zoom: 1;
+        }
+        .clearfix:after{
+            /*添加一个内容*/
+            content: "";
+            /*转换为块元素*/
+            display: block;
+            /*清楚两侧的浮动*/
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">header</div>
+    <div class="content clearfix">
+        <div class="middle ">
+            middle <br>
+            middle <br>
+            middle <br>
+            middle <br>
+        </div>
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+    <div class="footer">footer</div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>扇形导航</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #wrap{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            bottom: 0;
+            right: 0;
+            /*background: pink;*/
+        }
+        #wrap > .inner{
+            height: 100%;
+        }
+        #wrap > .inner img{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            margin: 4px;
+            border-radius: 50%;
+        }
+        #wrap > .home{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1; /*提升层级*/
+            /*background: deeppink;*/
+            background: url("./img/home.png") no-repeat;
+            border-radius: 50%;
+            transition: 1s;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="inner">
+            <img src="img/clos.png" alt="" />
+            <img src="img/full.png" alt="" />
+            <img src="img/open.png" alt="" />
+            <img src="img/prev.png" alt="" />
+            <img src="img/refresh.png" alt="" />
+        </div>
+        <div class="home"></div>
+    </div>
+</body>
+<script>
+    /*
+        1.在元素首次渲染还没有完成的情况下,是不会触发过渡的
+        2.在绝大部分变换样式切换时,如果变换函数的位置 个数不相同也不会触发过渡
+	*/
+    window.onload = function () {
+        var homeEle = document.querySelector('.home');
+        var imgs = document.querySelectorAll('#wrap > .inner img');
+        var r = 160;    /*旋转半径*/
+        var flag = true;
+        function fn() {
+            this.style.transition = '0.3s';
+            this.style.transform = 'rotate(720deg) scale(1)'
+            this.style.opacity = '1';
+            //调用一次后就解绑函数
+            this.removeEventListener('transitionend',fn)
+        }
+        for (var i = 0 ; i < imgs.length ; i++){
+            imgs[i].onclick = function () {
+                this.style.transition = '0.5s';
+                this.style.transform = 'rotate(720deg) scale(1.5)'
+                this.style.opacity = '0.5';
+                //放大的动画后，还原的动画调用函数来完成
+                this.addEventListener('transitionend',fn)
+            }
+        }
+        homeEle.onclick = function () {
+            if (flag === true){
+                // home按钮的旋转动画
+                this.style.transform = "rotate(-720deg)";
+                //做img的动画
+                for (var i = 0 ; i < imgs.length ; i++){
+                    //过渡时间 + 延迟
+                    imgs[i].style.transition = '0.8s ' + 0.1*i + 's';
+                    //旋转
+                    imgs[i].style.transform = 'rotate(720deg) scale(1)';
+                    //位置
+                    imgs[i].style.left = -getPosition(r,i*90/(imgs.length-1)).left + 'px';
+                    imgs[i].style.top = -getPosition(r,i*90/(imgs.length-1)).top + 'px';
+                }
+            }else{
+                // home按钮的旋转动画
+                this.style.transform = "rotate(0)";
+                //做img的动画
+                for (var i = 0 ; i < imgs.length ; i++){
+                    //过渡时间 + 延迟
+                    imgs[i].style.transition = '0.8s ' + 0.1*(imgs.length -1 - i) + 's';
+                    //旋转
+                    imgs[i].style.transform = 'rotate(0deg) scale(1)';
+                    //位置
+                    imgs[i].style.left = 0 + 'px';
+                    imgs[i].style.top = 0 + 'px';
+                }
+            }
+            flag = !flag;
+        }
+    };
+    //已知半径和角度，返回位置偏移量
+    function getPosition(r,deg) {
+        var x = Math.round(Math.sin(deg*Math.PI/180)*r);
+        var y = Math.round(Math.cos(deg*Math.PI/180)*r);
+        // console.log(deg,x,y)
+        return {left:x , top:y}
+    }
+</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>兔斯基</title>
+    <style>
+        /*
+        white-space用来设置如何处理元素中的 空白
+        *
+                    换行符	空格和制表符	  文字转行
+        normal	    合并      合并	      转行
+        nowrap	    合并      合并	      不转行
+        pre	        保留      保留	      不转行
+        pre-wrap	保留      保留          转行
+        pre-line	保留      合并          转行
+        break-spaces保留      保留          转行
+        */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #tsj{
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 48px;
+            height: 48px;
+            background: url("./img/animation.png") no-repeat 0 0;
+            animation:  move  1s steps(12,end) infinite;
+        }
+        @keyframes move {
+            from{
+                background-position: 0 0;
+            }
+            to{
+                background-position: -576px 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div id="tsj"></div>
+</body>
+</html>

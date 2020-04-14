@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+        }
+        .up{
+            background-color: pink;
+            float: left;
+            /*
+                浮动提升层级
+                    一个元素分两层，浮动只提升半层
+                        所以down中的文字会被卡住
+            */
+        }
+        .down{
+            background-color: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div class="up">up</div>
+    <div class="down">down</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航条练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /*设置ul*/
+        .nav{
+            width: 1000px;
+            background-color: burlywood;
+            /*清楚列表前的点*/
+            list-style: none;
+
+            /*外边距 居中*/
+            margin: 50px auto;
+            /*解决高度塌陷问题*/
+            zoom: 1;
+            overflow: hidden;
+
+
+        }
+
+        .nav li{
+            width: 25%;
+            /*浮动*/
+            float: left;
+
+
+
+        }
+        .nav a{
+            /*转为 块元素*/
+            display: block;
+            /*设置宽度*/
+            width: 100%;
+            /*文字居中*/
+            text-align: center;
+            /*去除下划线*/
+            text-decoration: none;
+            /*设置字体颜色*/
+            color: white;
+            /*加粗*/
+            font-weight: bold;
+            /*内边距*/
+            padding: 5px 0;
+        }
+        .nav a:hover{
+            /*伪类 移入样式*/
+            background-color: #ff6733;
+        }
+    </style>
+</head>
+<body>
+    <!--使用无序列表创建导航条结构-->
+    <ul class="nav">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">新闻</a></li>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">关于</a></li>
+    </ul>
+</body>
+</html>

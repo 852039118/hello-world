@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>渐变</title>
+    <style>
+        /*
+       最终语法: linear-gradient([ [ [ <angle> | to [top | bottom] || [left | right] ],]? <color-stop>[, <color-stop>]+);
+
+            最少有两个颜色值，每两个颜色值是一对儿，
+                例如 black 10px,pink 20px 表示从10px到20px之间是他俩的渐变色，0~10px是black，20px之后都是pink
+                例如 black 10px,pink 20px,blue 30px表示0~10px是black,10px~20px是black-pink的渐变色，20px~30px是pink-blue的渐变色，30px之后都是blue
+                以此类推
+        */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #box{
+            width: 100%;
+            height: 100%;
+            /*background-color: #F07575; !* 不支持渐变的浏览器回退方案 *!*/
+            /*background-image: -webkit-linear-gradient(top, hsl(0, 80%, 70%), #bada55); !* 支持 Chrome 25 and Safari 6, iOS 6.1, Android 4.3 *!*/
+            /*background-image:    -moz-linear-gradient(top, hsl(0, 80%, 70%), #bada55); !* 支持 Firefox (3.6 to 15) *!*/
+            /*background-image:      -o-linear-gradient(top, hsl(0, 80%, 70%), #bada55); !* 支持旧 Opera (11.1 to 12.0) *!*/
+            background-image:         linear-gradient(to bottom, #f07575, #bada55) /* 标准语法; 需要最新版本 */
+
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+</body>
+</html>

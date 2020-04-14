@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>质数分辨练习</title>
+    <script>
+
+        console.time("test");
+
+        var num = prompt("请输入一个大于1的数字");
+        var flag = true;
+        if (num <= 1) alert("请输入正确的数值")
+        else {
+            //判断输入的值是不是质数
+            for(var i = 2 ; i < num ; i++){
+                if(num % i == 0){
+                    //num整除了i，表示不是质数
+                    flag = false;
+                }
+            }
+            alert(num+(flag==true?"是质数":"不是质数"));
+        }
+
+        //打印2到100之间的所有的质数
+
+        //对一个数进行开方
+        // var a = Math.sqrt(97);
+        // console.log(a);
+        // console.time("test");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

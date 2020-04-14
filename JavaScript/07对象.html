@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+    <script>
+        var obj = new Object();
+
+        obj.name = 'Warren';
+        obj.age = 23;
+
+        console.log(obj.name);
+        console.log(obj);
+
+        /*
+        *
+        * */
+        var obj2 = {
+            name:'对象字面量',
+            age:2020,
+            //方法
+            sayName:function () {
+                console.log(obj2.name);
+            }
+        };
+        obj2.sayName();
+        console.log(obj2.name);
+        console.log(obj2);
+
+        /*
+        * 枚举对象所有属性
+        * */
+        for(var n in obj2){
+            console.log("属性名" + n);
+            console.log("属性值" + obj2[n]);
+        }
+        /*
+        * 在全局作用域中，
+        *   创建的变量都会作为window对象的属性保存
+        *   创建的函数都会作为window对象的方法保存
+        *
+        * */
+        console.log(window);
+        /*
+        * 声明提前var
+        * */
+        var a = 123;
+        function fun(){
+            alert(a);   //undefined
+            var a = 456;
+        }
+        fun();
+        alert(a);   //123
+
+        /*构造函数*/
+        function Person(name, age, gender) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            // this.sayName = function () {
+            //     console.log(this.name);
+            // }
+        }
+        /*
+        我们所创建的每一个函数，解析器都会向函数中添加一个属性prototype
+            这个属性对应着一个对象，这个对象就是我们所谓的原型对象
+         如果函数作为普通函数调用prototype没有任何作用
+         当函数以构造函数的形式调用时，它所创建的对象都会有一个隐含的属性，
+                指向该构造函数的原型对象，我们可以通过__proto__来访问该属性
+
+        原型对象就相当于一个公共的区域，所有同一个类的实例都可以访问这个原型对象
+        *   我们可以将对象中共有的内容，统一设置到原型对象中
+        */
+        Person.prototype.sayName = function () {
+            console.log(this.name);
+        }
+
+        function Dog() {
+        }
+
+        var per = new Person('Warren',20,'男');
+        console.log(per);
+        per.sayName();
+        //instanceof 检查一个对象是否是一个类的实例
+        console.log(per instanceof Person);
+        console.log(per instanceof Object);
+        console.log(per instanceof Dog);
+
+        console.log(per.__proto__);
+
+        console.log(per.hasOwnProperty('name'));
+        console.log(per.hasOwnProperty('hasOwnProperty'));
+        console.log(per.__proto__.hasOwnProperty('hasOwnProperty'));
+        console.log(per.__proto__.__proto__.hasOwnProperty('hasOwnProperty'));
+        /*
+        * 修改Person原型中的toString方法
+        * */
+        Person.prototype.toString = function(){
+          return "Person[name:"+ this.name + ",age:" + this.age + ",gender:" + this.gender + "]";
+        };
+        console.log(per.toString());
+
+        //垃圾回收，把对象设置为null即可
+        per = null;
+
+        console.log(per)
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

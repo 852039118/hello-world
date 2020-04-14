@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>强制类型转换</title>
+    <script>
+        /*
+         将其他的数据类型转换为字符串类型
+        * 一、调用toString()方法
+        *       - 注意： null和undefined这两个值没有toString方法，会报错
+        * 二、调用String()函数
+        *       -实际就是调用toString方法，但null和undefined也会被直接转换
+        * */
+        // var a = 123;
+        // // a = a.toString();
+        // a = String(a);
+        // console.log(typeof a);
+        // console.log(a);
+
+        /*
+         将其他的数据类型转换为数值类型
+        * 一、调用Number()函数
+        *       - 字符串-->数值
+                    1.如果是纯数字的字符串，则直接转换
+                    2.如果字符串中有非数字的内容，则转换为NaN,
+                    3.如果字符串是一个空字符串或全空格，则转换为0,
+                 - 布尔-->数值
+                    true    1
+                    false   0
+                 -null-->数值 0
+                 -undefined-->数值 NaN
+
+
+        * 二、调用parseInt()函数
+                - 这种方式专门用来对付字符串
+                -parseInt() 把一个字符串转换为一个整数
+                -parseFloat() 把一个字符串转换为一个浮点数
+        *       - 可以将字符串中有效的整数内容取出来
+        * */
+        var a = "123.312px";
+
+        a = parseFloat(a);
+        console.log(typeof a);
+        console.log(a);
+
+        /*
+         将其他的数据类型转换为Boolean
+        * 一、调用Boolean()方法
+        *       - 数值-->布尔
+                    -除了0和NaN，其余都为true
+                 -字符串-->布尔
+                    -除了空串，其余都是true
+                 null和undefined都会转为false
+        * */
+    </script>
+</head>
+<body>
+
+</body>
+</html>

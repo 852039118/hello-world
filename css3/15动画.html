@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画</title>
+    <style>
+/*
+        @keyframes 规定动画。
+        animation 所有动画属性的简写属性，除了 animation-play-state 属性。
+        animation-name 规定 @keyframes 动画的名称。
+        animation-duration 规定动画完成一个周期所花费的秒或毫秒。默认是 0。
+        animation-timing-function 规定动画的速度曲线。默认是 "ease"。
+        animation-delay 规定动画何时开始。默认是 0。
+        animation-iteration-count 规定动画被播放的次数。默认是 1,infinite 规定动画应该无限次播放。
+        animation-direction 规定动画是否在下一周期逆向地播放。默认是 "normal"。
+        animation-play-state 规定动画是否正在运行或暂停。默认是 "running"。
+        animation-fill-mode 规定对象动画时间之外的状态。
+*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #wrap{
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 300px;
+            height: 300px;
+            border: 1px solid;
+            background: url("./img/周冬雨.jpg") no-repeat;
+            background-size: 100% 100%;
+            /*perspective: 200px;*/
+        }
+        #wrap > .box{
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            text-align: center;
+            font: 20px/100px "微软雅黑";
+            background: pink;
+            /* 动画内的属性 */
+            animation-name: move;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-direction: alternate;   /* 反转关键帧 */
+            /* 动画内的属性 */
+            animation-delay: 1s;
+            /* 只作用于动画内的属性 */
+            animation-iteration-count: infinite;   /* 重复的是关键帧 infinite一直重复 inherit,initial单次 */
+            /*元素在动画外的状态
+				 *
+				 * backwards：from之前的状态与form的状态保持一致
+				 * forwards：to之后的状态与to的状态保持一致
+				 * both：backwards+forwards
+				 * */
+            animation-fill-mode: both;
+            /* 管理动画的运行和停止 */
+            animation-play-state: running;
+        }
+        @keyframes move {
+            from{
+                transform:translateY(-100px);
+            }
+            to{
+                transform:translateY(100px);
+            }
+        }
+        #wrap:hover .box{
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div class="box">
+        周冬雨
+    </div>
+</div>
+</body>
+</html>

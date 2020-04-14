@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>键盘事件改进不卡顿</title>
+    <style>
+        #box1{
+            width:50px;
+            height:50px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //定义一个变量，来表示移动的速度
+            var speed = 30;
+            //按键的方向
+            var dir = 0;
+            var box1 = document.getElementById('box1');
+            var p1 = document.getElementById('p1');
+            p1.innerHTML = '移速：' + speed + 'px';
+            document.onkeydown = function (event) {
+                event = event || window.event;
+                // console.log(event.keyCode);
+                if(event.ctrlKey){
+                    speed = 10
+                }
+                else if(event.shiftKey){
+                    speed = 50
+                }
+                p1.innerHTML = '移速：' + speed + 'px';
+
+                //如果是方向键按下 才把值给dir
+                if (event.keyCode >= 37 && event.keyCode <= 40){
+                    dir = event.keyCode;
+                }
+            };
+            document.onkeyup = function (event) {
+                event = event || window.event;
+                if(event.keyCode === 17 || event.keyCode === 16){   //ctrl : 17,  SHIFT: 16
+                    speed = 30
+                }
+                p1.innerHTML = '移速：' + speed + 'px';
+
+                //如果是方向键松开 才给dir 0
+                if (event.keyCode >= 37 && event.keyCode <= 40){
+                    dir = 0;
+                }
+
+            };
+            //定时器来捕获移动，防止抖动
+            setInterval(function(){
+                switch(dir){
+                    case 38 :
+                        // console.log('上');
+                        box1.style.top = box1.offsetTop - speed + 'px'
+                        break;
+                    case 39 :
+                        // console.log('右');
+                        box1.style.left = box1.offsetLeft + speed + 'px'
+                        break;
+                    case 40 :
+                        // console.log('下');
+                        box1.style.top = box1.offsetTop + speed + 'px'
+                        break;
+                    case 37 :
+                        // console.log('左');
+                        box1.style.left = box1.offsetLeft - speed + 'px'
+                        break;
+                }
+            },15);
+        }
+    </script>
+</head>
+<body>
+<p id="p1"></p>
+<div id="box1"></div>
+</body>
+</html>

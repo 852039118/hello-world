@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据类型</title>
+    <script>
+        /*
+        * 六种数据类型
+        * String    字符串
+        * Number    数值
+        * Boolean   布尔值
+        * Null      空值
+        * Undefined 未定义
+        * Object    对象
+        *
+        * Object属于引用数据类型，其余为基本数据类型
+        * */
+
+        var str = "我说：\"今天天气真不错\"    \\";
+        console.log(str);
+
+        /*
+        * JS中进行浮点运算，可能得到一个不精确的结果
+        *   所以千万不要使用JS进行对精确度要求比较高的运算
+        * */
+        var money = 0.1 + 0.2;
+        console.log(money);
+
+        /*
+        * typeof获取数据类型
+        *   检查一个null值时，会返回object
+        * */
+        console.log(typeof money);  //number
+
+        var x=null;
+        console.log(typeof x);  //object
+
+        /*
+        * undefined(未定义)类型的值只有一个，就是undefined
+        *   声明一个变量，但未赋值
+        * */
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随动div</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #box2{
+            width: 300px;
+            height: 300px;
+            background-color: #bfd;
+            margin: 0 auto;
+        }
+        body{
+            height: 2000px;
+            width: 2000px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box1 = document.getElementById('box1');
+
+            document.onmousemove = function (event) {
+                //解决兼容问题
+                event = event || window.event;  //前面如果没有event则为null，就会取后面的window.event
+                /*
+                * clientX 返回当事件被触发时，鼠标指针的水平坐标。
+                  clientY 返回当事件被触发时，鼠标指针的垂直坐标。
+                  *     但是是当前可见窗口的，而不是整个页面
+                  *
+                  * pageX和pageY可以获取鼠标相对于当前页面的坐标
+                  *     但是IE8不支持
+                * */
+
+                /*
+                * 获取滚动条滚动的距离
+                *   chrome认为浏览器的滚动条是body的， 可以通过body . scrollTop来获取
+                *   火狐等训览器认为调览器的银动条是html的，                * */
+                var st = document.body.scrollTop || document.documentElement.scrollTop;
+                var sl = document.body.scrollLeft || document.documentElement.scrollLeft;
+
+                box1.style.left = event.clientX + sl + 'px';
+                box1.style.top = event.clientY + st + 'px';
+            }
+
+            //取消box2的事件冒泡
+            var box2 = document.getElementById('box2');
+            box2.onmousemove = function (event) {
+                event = event || window.event
+                event.cancelBubble = true
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+</body>
+</html>

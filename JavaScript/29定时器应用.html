@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>龟兔赛跑</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box1{
+            width:100px;
+            height:100px;
+            background-color: red;
+            position: absolute;
+            left:0;
+            top: 50px;
+        }
+        #box2{
+            width:100px;
+            height:100px;
+            background-color: yellowgreen;
+            position: absolute;
+            left:0;
+            top: 200px;
+        }
+        #box3{
+            width:0px;
+            height:100%;
+            border: black 1px solid;
+            position: absolute;
+            left:800px;
+            top: 0;
+        }
+    </style>
+    <script src="tools/tools.js"></script>  <!--引用工具-->
+    <script>
+        window.onload = function () {
+            var btn01 = document.getElementById('btn01');
+            var btn02 = document.getElementById('btn02');
+            var btn03 = document.getElementById('btn03');
+            var btn04 = document.getElementById('btn04');
+            var box1 = document.getElementById('box1');
+            var box2 = document.getElementById('box2');
+            btn01.onclick = function () {
+                move(box1,'left',800,10)
+            }
+            btn02.onclick = function () {
+                move(box1,'left',0,10)
+            }
+            btn03.onclick = function () {
+                move(box2,'left',800,30)
+            }
+            btn04.onclick = function () {
+                // move(box2,'width',800,30)
+                // move(box2,'height',800,30)
+                move(box2,'left',800,30,function () {
+                    move(box2,'height',800,30,function () {
+                        move(box2,'width',800,30,function () {
+                            move(box2,'top',0,30)
+                        })
+                    })
+                })
+            }
+        };
+    </script>
+</head>
+<body>
+<button id="btn01">将box1向右移动</button>
+<button id="btn02">将box1向左移动</button>
+<button id="btn03">将box2向右移动</button>
+<button id="btn04">测试按钮</button>
+<div id="box1"></div>
+<div id="box2"></div>
+<div id="box3"></div>
+</body>
+</html>

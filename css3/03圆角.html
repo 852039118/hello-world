@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆角</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #test{
+            position: absolute;
+            width: 200px;
+            height: 300px;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            border:1px solid pink;
+
+            /*border-radius: 100px;*/
+            border-radius: 100px/150px;     /*表示以100px为宽150px为高的一个椭圆去切div的四个边*/
+
+        }
+    </style>
+</head>
+<body>
+    <div id="test">
+
+    </div>
+</body>
+</html>

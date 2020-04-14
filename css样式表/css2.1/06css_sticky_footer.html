@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable= no"/>
+    <title>css_sticky_footer</title>
+    <style>
+        /*粘连布局 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+        }
+        #warp{
+            min-height: 100%;
+            background: deeppink;
+            text-align: center;
+            /*padding-bottom: 50px;*/
+        }
+        #warp #main{
+            padding-bottom: 50px;   /*要给子元素的内边距，而不能直接给父元素warp，那样会一直撑开父元素*/
+        }
+        #footer{
+            height: 50px;           /*盒模型高度*/
+            line-height: 50px;      /*行高度*/
+            text-align: center;     /*字体居中*/
+            background-color: pink; /*背景颜色*/
+            margin-top: -50px;
+        }
+    </style>
+</head>
+<body>
+<div id="warp">
+    <div id="main">
+        main <br>
+        main <br>
+        main <br>
+        main <br>
+        main <br>
+    </div>
+</div>
+<div id="footer">
+    footer
+</div>
+<script>
+    document.getElementById('footer').onclick = function () {
+        document.getElementById('main').innerHTML += document.getElementById('main').innerHTML;
+    }
+</script>
+</body>
+</html>

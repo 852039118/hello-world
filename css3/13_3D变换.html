@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D变换</title>
+    <style id="css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        /*
+		 * 景深:让3D场景有近大远小的效果（我们肉眼距离屏幕的距离）
+		 * 			是一个不可继承属性，但他可以作用于后代元素（不是作用于本身的）
+		 *
+		 * 原理：
+		 * 		景深越大 灭点越远 元素变形更小
+		 * 		景深越小 灭点越近 元素变形更大
+		 *
+		 * 景深基点
+		 * 		视角的位置
+		 *
+		 * 		景深叠加
+		 * 			尽量避免景深叠加
+		 *
+		 * transform-style
+		 * 		营造有层级的3d舞台
+		 * 			是一个不可继承属性，他作用于子元素
+		 * */
+        #wrap{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+            width: 400px;
+            height: 400px;
+            background: gray;
+            border: 1px solid black;
+            /* 景深 ： 它的值越小，视角越深。(设置灭点的位置)*/
+            perspective: 100px;
+            /*perspective: 200px;*/
+            /* 设置基点的位置 */
+            /*perspective-origin: left top;*/
+
+            transform-style: preserve-3d;
+        }
+        #inner{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+            width: 200px;
+            height: 200px;
+            background: pink;
+            border: 1px solid black;
+            /*border-radius: 411px;*/
+            font:  italic bold 30px/200px "Segoe Script";
+            text-align: center;
+            transition: 2s;
+            transform: rotateX(45deg) ; /*translateZ(100px)*/
+        }
+        #wrap:hover #inner{
+            /* 3D旋转 */
+            /*transform: rotateX(180deg);*/
+            /*transform: rotate3d(1,1,1,360deg);*/
+            /* 3D平移 */
+            /*transform: translateZ(100px);*/
+            /*transform: translate3d(100px,100px,100px);*/
+            /* 3D缩放 */
+            /*transform: scaleZ(2) rotateY(360deg);*/
+            /*transform: scaleZ(2) translateZ(100px);*/
+            /*transform:  translateZ(100px) scaleZ(2);*/
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="inner">
+            3D效果
+        </div>
+    </div>
+</body>
+</html>

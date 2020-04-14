@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+    <!--
+        Document  Object  Model
+    -->
+    <script>
+        // window.onload 在页面加载完成之后才执行，由于文档加载自上而下，这样可以防止先加载而获取不到对象导致报错
+        window.onload = function(){
+            var btn1 = document.getElementById('b0');
+            btn1.onclick = function () {
+                alert('点我点我！');
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="b0">我是按钮</button>
+    <script>
+        /*
+        * 浏览器已经为我们提供 文档节点，这个对象是window属性
+        *   可以在页面中直接使用，文档节点代表的是整个网页
+        * */
+        console.log(document);
+
+        //获取到button对象
+        var btn = document.getElementById('b0');
+
+        console.log(btn);
+        console.log(btn.innerHTML);
+        /*
+        * 修改按钮中的文字
+        * innerHTML 通过这个属性可以获取到元素内部的HTML内容
+        * */
+        btn.innerHTML = 'I am a button';
+        console.log(btn.innerHTML);
+
+        /*
+        * 获取元素节点 ：●通过document对象调用
+        * 1. getElementById()
+        *   -通过id属性获取一个元素节点对象
+        * 2. getElementsByTagName()
+        *   -通过标签名获取一组元素节点对象        (得到类数组)
+        * 3. getElementsByName()
+        *   -通过name属性获取一组元素节点对象
+        * */
+        /*
+        * 获取元素节点的子节点 ： ●通过具体的元素节点调用
+        * 1. getElementsByTagName()
+        *   -方法,返回当前节点的指定标签名后代节点
+        * 2. childNodes
+        *    -属性,表示当前节点的所有子节点   (包含换行、注释也会被当成文本节点)  IE8及以下不会    推荐使用children
+        * 3. firstChild
+        *   -属性,表示当前节点的第一个子节点   (包含换行、注释也会被当成文本节点)  firstElementChild不会，但是IE8+ 不兼容
+        * 4. lastChild
+        *   -属性,表示当前节点的最后一个子节点
+        * */
+        /*
+        * querySelector() 可以根据一个css选择器来查询一个节点对象
+        *       但是就算有多个，也只会返回第一个
+        *
+        * querySelectorAll()可以返回数组
+        * */
+
+        document.write(document.querySelector('#b0').innerHTML);
+    </script>
+</body>
+</html>

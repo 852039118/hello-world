@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>完善clearfix</title>
+    <style>
+        .box1{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            /*
+                子元素的外边距会传递给父元素
+                    使用空的table元素可以隔开
+            */
+            margin-top: 100px;
+        }
+        .box3{
+            border: 10px solid greenyellow;
+        }
+        .box4{
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            float: left;
+        }
+        /*!* 解决父子元素的外边距重叠*!
+        .box1:before{
+            content: "";
+            display: table;
+        }
+        !* 解决高度塌陷问题*!
+        .box3:after{
+            content: "";
+            display: block;
+            clear: both;
+        }*/
+
+        /*
+            经过修改后的clearfix是一个多功能的
+                既可以解决高度塌陷问题，又可以确保父子元素的外边距重叠问题
+        */
+        .clearfix:before,
+        .clearfix:after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+        /* 兼容IE6 */
+        .clearfix{
+            zoom: 1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box3 clearfix">
+        <div class="box4"></div>
+    </div>
+    <div class="box1 clearfix">
+        <div class="box2"></div>
+    </div>
+
+</body>
+</html>

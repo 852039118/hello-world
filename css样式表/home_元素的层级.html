@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素的层级</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: relative;
+            z-index: 0;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            z-index: 1;
+        }
+        .box3{
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+            position: absolute;
+            left: 200px;
+            top: 200px;
+            z-index: 2;
+            /*
+            设置元素透明度
+                opacity可以用来设置元素背景的透明度（0~1之间的值）
+                    0 : 完全透明
+                    1 ：完全不透明
+                    0.5 ： 半透明
+            */
+            opacity: 0.5;
+
+            /*
+            opacity属性在IE8及以下不支持
+                需要使用alpha代替,但是是0~100的值
+                    filter滤镜
+            */
+            filter: alpha(opacity=50);
+        }
+    </style>
+</head>
+<body>
+<div class="box1"></div>
+<div class="box2"></div>
+<div class="box3"></div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字体与文本</title>
+    <style>
+/*    字体大小：
+        默认16px, 最小12px
+        em : 1em  = 父元素的字体大小 （即默认的16px）
+        %  : 100% = 父元素的字体大小*/
+        .test{
+            font-size: 200%;
+            font-style: italic;
+            font-weight: bold;
+            font-family: "Ink Free","方正舒体",arial, verdana, sans-serif ;    /*字体与字体族*/
+        }
+        .ad{
+            /*简写属性: 固定格式，顺序不能错
+            font-style font-weight font-size/line-height font-family*/
+            font: italic bold 32px/80px 'Segoe Script' ,'方正舒体' ;
+            color: pink;
+        }
+    </style>
+</head>
+<body style="font-size: 20px">
+
+
+    <div class="test">
+        汪克俊 I Love You
+    </div>
+
+    <div class="ad">
+        汪克俊new object
+    </div>
+</body>
+</html>

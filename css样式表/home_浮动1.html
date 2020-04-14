@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动1</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            /*
+                块元素默认在文档流中垂直排列，
+                    可以使用float使元素浮动，从而脱离文档流
+                        可选值：
+                                none：默认值，元素默认在文档流中排列
+                                left：元素会立即脱离文档流，向页面的左侧浮动
+                                right：元素会立即脱离文档流，向页面的右侧浮动
+
+                当为一个元素设置浮动以后（非none值）
+                    元素会立即脱离文档流，它下面的元素会向上移动
+                    元素浮动以后，会尽量的向左上或者右上浮动，直到遇到父元素的边框或其他的浮动元素
+                    如果浮动元素上面是一个没有浮动的块元素，则浮动元素不会超过块元素
+                    浮动元素不会超过它上边的兄弟浮动元素，最多最多一边齐
+            */
+            float: left;
+
+        }
+        .box2{
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+
+            /*float: left;*/
+        }
+        .box3{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+
+            /*float: left;*/
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+</body>
+</html>

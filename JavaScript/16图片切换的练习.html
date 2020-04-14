@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            width: 500px;
+            height: 500px;
+            background-color: #50ff60;
+            margin: 50px auto;
+            padding: 10px;
+            text-align: center;
+        }
+        img{
+            width: 100%;
+            height: 91%;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //图片的文件位置数组
+            var imgArr = ['assets/1.jpg','assets/2.jpg','assets/3.jpg','assets/4.jpg','assets/5.jpg'];
+            //图片数组的索引
+            var imgIndex = 0;
+            //根据图片的元素名字获取到对象
+            var img = document.getElementsByTagName('img')[0];  //类数组
+            console.log(img);
+            //显示当前图片信息
+            var p = document.getElementsByTagName('p')[0];
+            p.innerHTML = '一共'+imgArr.length+'张图，当前是第'+(imgIndex+1)+'张';
+            //上一张图片
+            var btnPrev = document.getElementById('prev');
+            btnPrev.onclick = function () {
+                console.log('prev');
+                imgIndex--;
+                if(imgIndex < 0){
+                    imgIndex = imgArr.length -1;
+                }
+                img.src = imgArr[imgIndex]
+                //重设图片信息
+                p.innerHTML = '一共'+imgArr.length+'张图，当前是第'+(imgIndex+1)+'张';
+            };
+            //下一张图片
+            var btnNext = document.getElementById('next');
+            btnNext.onclick = function () {
+                console.log('next');
+                imgIndex++;
+                if(imgIndex > imgArr.length -1){
+                    imgIndex = 0;
+                }
+                img.src = imgArr[imgIndex]
+                //重设图片信息
+                p.innerHTML = '一共'+imgArr.length+'张图，当前是第'+(imgIndex+1)+'张';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <p></p>
+        <img src="assets/1.jpg" alt="">
+        <button id="prev">上一张</button>
+        <button id="next">下一张</button>
+    </div>
+</body>
+</html>

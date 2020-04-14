@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显式原型和隐式原型</title>
+</head>
+<body>
+<!--
+1. 每个函数function都有一个prototype，即显式原型(属性)
+2. 每个实例对象都有一个__proto__，可称为隐式原型(属性)
+3. 对象的隐式原型的值为其对应构造函数的显式原型的值
+4. 内存结构(图)
+5. 总结:
+  * 函数的prototype属性: 在定义函数时自动添加的, 默认值是一个空Object对象
+  * 对象的__proto__属性: 创建对象时自动添加的, 默认值为构造函数的prototype属性值
+  * 程序员能直接操作显式原型, 但不能直接操作隐式原型(ES6之前)
+-->
+<script>
+    //创建一个函数(三个方式)
+    var Fun = function () {
+        console.log(00)
+    };
+    function Fun1(){
+        console.log(1)
+    }
+    var Fun2 = new Function(
+        console.log(2)
+    );
+    var obj = new Object()
+    
+    console.log(obj.__proto__.__proto__)
+
+    //创建函数的实例对象
+    var f0 = new Fun();
+    var f1 = new Fun1();
+    var f2 = new Fun2();
+
+    //对象的隐式原型 === 函数的显式原型(地址相等) ==> 指向的是一个空的object对象
+    console.log(Fun.prototype === f0.__proto__)     //true
+    console.log(Fun1.prototype === f1.__proto__)    //true
+    console.log(Fun2.prototype === f2.__proto__)    //true
+
+    //函数显式原型的constructor  === 函数名
+    console.log(Fun.prototype.constructor === Fun)     //true
+    console.log(Fun1.prototype.constructor === Fun1)    //true
+    console.log(Fun2.prototype.constructor === Fun2)     //true
+
+
+    console.log(f0)
+    console.log(f1)
+    console.log(f2)
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时间的委派</title>
+    <style>
+        .hello{
+
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var btn = document.getElementById('btn');
+            var u1 = document.getElementById('u1');
+            btn.onclick = function () {
+                console.log('appendChild');
+                var li = document.createElement('li');
+                li.innerHTML = "<a href='javaScript:;' class=\"hello\">新增的链接</a>";
+                //将li添加到ul中
+                u1.appendChild(li);
+            }
+
+            /*
+            * 我们希望，只郴定一次事件。即可应用到多个的元素上，即使元素是后添加的
+            * ”我们可以尝试将其绑定给元素的共同的祖先元素
+            *   事件的委派
+            *       指将事件统一梆定给元素的共同的祖先元素，这样当后代元素上的事件触发时，会一直雷泡到祖先元素
+            *       从而通过祖先元素的响应函数来处理事件。
+            *   事件委派是利用了事件冒泡，通过委派可以减少事件绑定的次数，提高程序的性能
+            * */
+            //给li的父元素ul添加事件监听
+            u1.onclick = function (event) {
+                event = event || window.event
+                /*
+                * target
+                *   - event中的target表示触发事件的对象
+                * */
+                console.log(event.target.className);
+                if(event.target.className === 'hello'){
+                    alert('我是ul的单级响应函数')
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">添加一个li链接</button>
+    <ul id="u1">
+        <li><a href="javaScript:;" class="hello">超链接一</a></li>
+        <li><a href="javaScript:;" class="hello">超链接二</a></li>
+        <li><a href="javaScript:;" class="hello">超链接三</a></li>
+    </ul>
+</body>
+</html>

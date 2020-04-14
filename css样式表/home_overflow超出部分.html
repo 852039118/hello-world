@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>overflow处理溢出部分</title>
+    <style>
+        .box1{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+
+            /*
+                子元素默认是存在于父元素的内容区中
+                    超出的溢出部分通过overflow来处理
+
+                可选值：
+                        - visible : 默认值，不会对溢出内容做处理，元素会在父元素以外的位置显示
+                        - hidden ： 溢出的内容，会被修剪，不会显示
+                        - scroll : 会为父元素添加滚动条（不论是否溢出 水平垂直都会增加滚动条）
+                        - auto ： 会根据实际情况自动选择是否增加滚动条
+            */
+            overflow: auto;
+        }
+        .box2{
+            width: 100px;
+            height: 500px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+<span>hello</span>
+
+</body>
+</html>

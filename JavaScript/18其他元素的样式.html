@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>其他元素的样式</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border: 10px solid yellow;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box1 = document.getElementById('box1');
+            var btn = document.getElementById('btn');
+            btn.onclick = function () {
+                /*
+                *  clientWidth  (只读属性)
+                *  clientHeight
+                *   -这两个属性可以获取元素的可见宽度和高度，直接返回数字，不带px
+                *   -会获取元素高度和宽度，包括内容区和内边距
+                * */
+                alert(box1.clientWidth)
+                alert(box1.clientHeight)
+
+                /*
+                *  offsetWidth  (只读属性)
+                *  offsetHeight
+                *   -获取元素整个的宽高，包括内容区、内边距和边框
+                * */
+                alert(box1.offsetWidth)
+                alert(box1.offsetHeight)
+            }
+
+        }
+    </script>
+</head>
+<body>
+<button id="btn">点我一下</button>
+<div id="box1"></div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>键盘事件</title>
+    <style>
+        #box1{
+            width:50px;
+            height:50px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box1 = document.getElementById('box1');
+            //键盘按下
+            // document.onkeydown = function (event) {
+            //     console.log('down')
+            // }
+            //键盘松开
+            // document.onkeyup = function () {
+            //     console.log('up')
+            // }
+
+            /*
+            * CTRL  SHIFT  ALT等特殊按键
+            * 可以通过keyCode来获取按键的编码
+                通过它可以判断哪个按键被按下
+                除了keyCode.事件对象中还提供了几个属性
+                altKey
+                ctrlKey
+                shiftKey
+                -这个三个用来判断alt ctrl 和shift是否被技下
+                如果按下则true.否则false
+            * */
+            document.onkeydown = function (event) {
+                event = event || window.event
+                if (event.keyCode === 65 && event.ctrlKey){
+                    console.log('CTRL + A');
+                }
+                /*
+                            * 在文本框中输入内容，属于onkeydown的默认行为
+                                如果在onkeydown中取消了默认行为，则输入的内容，不会出现在文本框中
+                            * */
+                return false
+            }
+
+            document.onkeydown = function (event) {
+                event = event || window.event
+                console.log(event.keyCode)
+                //定义一个变量，来表示移动的速度
+                var speed = 50
+                switch(event.keyCode){
+                    case 38 :
+                        console.log('上');
+                        box1.style.top = box1.offsetTop - speed + 'px'
+                        break;
+                    case 39 :
+                        console.log('右');
+                        box1.style.left = box1.offsetLeft + speed + 'px'
+                        break;
+                    case 40 :
+                        console.log('下');
+                        box1.style.top = box1.offsetTop + speed + 'px'
+                        break;
+                    case 37 :
+                        console.log('左');
+                        box1.style.left = box1.offsetLeft - speed + 'px'
+                        break;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text">
+<div id="box1"></div>
+</body>
+</html>

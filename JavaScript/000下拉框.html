@@ -1,0 +1,126 @@
+<html>
+<head>
+    <title>下拉框中的复选框</title>
+</head>
+<script>
+    function aa(obj,td_name)
+    {
+        var select_value=document.getElementById("where");
+        var td_value = document.getElementById(td_name);
+        if(obj.checked == true){
+
+            if(select_value.value.length>0){
+
+                select_value.value+="," + td_value.innerText;
+            }else{
+                select_value.value+=td_value.innerText;
+            }
+        }else{
+            if(select_value.value.indexOf("," + td_value.innerText + ",") != -1){
+                select_value.value = select_value.value.replace("," +
+
+                    td_value.innerText,'');
+            }else if(select_value.value.indexOf("," + td_value.innerText) != -1){
+                select_value.value = select_value.value.replace("," +
+
+                    td_value.innerText,'');
+            }else if(select_value.value.indexOf(td_value.innerText + ",") != -1){
+                select_value.value = select_value.value.replace(td_value.innerText + ",",'');
+            }else if(select_value.value.indexOf(td_value.innerText) != -1){
+                select_value.value = select_value.value.replace(td_value.innerText,'');
+            }
+        }
+
+    }
+    function bb(){
+        var obj = document.getElementById("ds");
+        if(obj.style.display==""){
+            obj.style.display="block";
+        }else if(obj.style.display=="none"){
+            obj.style.display="block";
+        }else if(obj.style.display=="block"){
+            obj.style.display="none";
+        }
+
+    }
+
+    function inDaohang(divname,obj){
+        var f = false;
+        while(obj.parentNode){
+            if(obj.name==divname){
+                return true;
+            }
+            obj = obj.parentNode;
+        }
+        return false;
+    }
+    function closeDaohang(e,divname,aname){
+        if(e.id!=aname && e.id!='where' && e.id.indexOf("td") ==-1&& e.id.indexOf("check") ==-1)
+            if(!inDaohang(divname,e)){
+                var a = document.getElementsByName(divname);
+                for(var i=0;i<a.length;i++){
+                    a[i].style.display='none';
+                }
+
+            }
+
+    }
+
+</script>
+<style type="text/css">
+    body{
+        margin:0px;
+        SCROLLBAR-FACE-COLOR: #e0edfd;
+        SCROLLBAR-HIGHLIGHT-COLOR: #dfe8f4;
+        SCROLLBAR-SHADOW-COLOR: #2c7cda;
+        SCROLLBAR-3DLIGHT-COLOR: #2c7cda;
+        SCROLLBAR-ARROW-COLOR: #14549f;
+        SCROLLBAR-TRACK-COLOR: #eaf5fd;
+        SCROLLBAR-DARKSHADOW-COLOR: #ffffff;
+        SCROLLBAR-BASE-COLOR: #e0edfd;
+    }
+    .menu{
+        display:none;
+    }
+    input.blur{
+        border:1px solid #99BBE8;
+        background:#FFFFFF;
+        height:18px;
+    }
+    .tableborder{
+        border:solid 1px #CCCCCC;
+        border-collapse:collapse;
+        font-size:12px;
+
+    }
+</style>
+
+<body οnclick="closeDaohang(event.srcElement||event.target,'ds','xx')">
+<form>
+    <div id="xx">
+        <table>
+            <tr>
+                <td>
+                    <input type="text" id="where" name="where" style="width:100px" οnclick="bb()"
+
+                           οnblur="this.className='blur'" οnfοcus="this.className='focus'" class="blur" readonly>
+                </td>
+
+        </table>
+    </div>
+    <div id="ds" style="display:none;padding:0px 0px 0px 0px; margin:0;">
+        <table border="0" cellpadding="0" cellspacing="0" class="tableborder">
+            <tr><td id="td1"><input type="Checkbox" id="check1" name="idol02" value="123"
+
+                                    οnclick="aa(this,'td1')">123</td></tr>
+            <tr><td id="td2"><input type="Checkbox" id="check2" name="idol02" value="232"
+
+                                    οnclick="aa(this,'td2')">232</td></tr>
+            <tr><td id="td3"><input type="Checkbox" id="check3" name="idol02" value="3421"
+
+                                    οnclick="aa(this,'td3')">3421</td></tr>
+        </table>
+    </div>
+</form>
+</body>
+</html>

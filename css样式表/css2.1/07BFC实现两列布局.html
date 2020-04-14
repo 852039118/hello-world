@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BFC实现两列布局</title>
+    <!--
+  ###BFC是什么
+    BFC(Block formatting context)直译为“块级格式化上下文"。它是个独立的渣染区域，只有Block-level box参与，
+    它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干
+  ###BFC布局规则:
+    1.内部的Box会在垂直方向，-个接个地放置。
+    2.BFC的区域不会与float box重叠。
+    3.内部的Box重直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠
+    4.计算BFC的高度时.浮动元素也参与计算。(清除浮动 haslayout)
+    5.BFC就是页面上的个隔高的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。
+  ###BFC什么时候出现(哪些元素会生成BFC?)
+    根元素
+    float属性不为none
+    position为absolute或fixed
+    overflow不为visible
+    display为inline block, table cell, table caption, flex, inline flex
+
+    -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            min-width:600px;
+        }
+        #content{
+            width: 300px;
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+        #left{
+            float: left;
+            width: 100px;
+            height: 200px;
+            background: url("../images/sss.jpg") no-repeat;
+            /*opacity: 0;*/
+
+            /*background-position: -50px -50px;*/
+        }
+        #right{
+            padding-left: 10px;
+            background: deeppink;
+
+            /*多余长度 自动变为省略号*/
+            display: block;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <div id="left">left</div>
+    <div id="right">
+        孩童只盼望欢乐  大人只知道寄望  为何都不大懂得努力体恤对方 <br>
+        成人只寄望收获  情人只听见承诺  为何都不大懂得努力珍惜对方 <br>
+        孩童只盼望欢乐  大人只知道寄望  为何都不大懂得努力体恤对方 <br>
+        成人只寄望收获  情人只听见承诺  为何都不大懂得努力珍惜对方 <br>
+        孩童只盼望欢乐  大人只知道寄望  为何都不大懂得努力体恤对方 <br>
+        成人只寄望收获  情人只听见承诺  为何都不大懂得努力珍惜对方 <br>
+        孩童只盼望欢乐  大人只知道寄望  为何都不大懂得努力体恤对方 <br>
+        成人只寄望收获  情人只听见承诺  为何都不大懂得努力珍惜对方 <br>
+        孩童只盼望欢乐  大人只知道寄望  为何都不大懂得努力体恤对方 <br>
+        成人只寄望收获  情人只听见承诺  为何都不大懂得努力珍惜对方 <br>
+        孩童只盼望欢乐  大人只知道寄望  为何都不大懂得努力体恤对方 <br>
+        成人只寄望收获  情人只听见承诺  为何都不大懂得努力珍惜对方 <br>
+        <p>成人只寄望收获  情人只听见承诺  为何都不大懂得努力珍惜对方</p>
+    </div>
+</div>
+
+</body>
+</html>

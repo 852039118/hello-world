@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>box拖拽</title>
+    <style>
+        #box1{
+            width:200px;
+            height:100px;
+            background-color: red;
+            position: absolute;
+        }
+        body{
+            height: 3000px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box1 = document.getElementById('box1');
+            box1.onmousewheel = function (event) {
+                event = event || window.event;
+                //判断滚轮的方向
+                // alert(event.wheelDelta)
+                if (event.wheelDelta > 0){
+                    box1.style.height = box1.clientHeight - 20 + 'px';  //clientHeight：包括padding但不包括border、水平滚动条、margin的元素的高度
+                }else{
+                    box1.style.height = box1.clientHeight + 20 + 'px';
+                }
+                /*
+                * 当滚轮滚动时，如果浏览器有滚动条，滚动条会随之滚动。
+                这是浏览器的默认行为，如果不希望发生，则可以取消默认行为
+                * */
+                return false
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="box1"></div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05使用绝对定位来模拟固定定位（静止系统默认滚动条）</title>
+    <style>
+        /*
+            如果只设置HTML或者body两个中的一个的overflow，则只对系统的滚动条生效，
+                而如果都设置了，则html的对系统生效，
+                                 body的对body内部生效
+        */
+        html{
+            overflow: hidden;   /*隐藏系统滚动条*/
+            height: 100%;
+        }
+        body{
+            overflow: auto;     /*在body里面自动显示滚动条*/
+            height: 100%;
+        }
+        .test{
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: deeppink;
+        }
+    </style>
+</head>
+<body >
+    <div class="test"></div>
+    <div style="height: 2000px"></div>
+
+</body>
+</html>

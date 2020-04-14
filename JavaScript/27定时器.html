@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器</title>
+    <script>
+        window.onload = function () {
+            var timer = 1;
+            var p1 = document.getElementById('p1');
+            var btn = document.getElementById('btn');
+            p1.innerHTML = timer;
+            /*
+            * set Interval ( )
+                -定时调用
+                .可以将一个函数。每隔一段时间执行一次
+                .参数。
+                1.定时函数。该值数会每隔-段时间被调用一次
+                2.每次调用间隔的时间，单位是毫秒
+                *
+                * 返回值，
+                    返回一个Number类型的数据
+                    这个数字用来作为定时器的唯一标识
+            * */
+            var interval1 = setInterval(function () {
+                p1.innerHTML = ++timer;
+                /*
+                * clearInterva1()可以用来关闭一个定时器
+                    方法中需要-个定时器的标识作为参数。这样将关闭标识对应的定时器
+                    clearInterval(interval1);
+                * */
+                //关闭定时器
+                if(timer == 11){
+                    clearInterval(interval1)
+                }
+            },1000);
+
+            btn.onclick = function () {
+                //关闭定时器
+                clearInterval(interval1)
+            }
+        }
+    </script>
+</head>
+<body>
+    <p id="p1"></p>
+<button id="btn">关闭定时器</button>
+</body>
+</html>

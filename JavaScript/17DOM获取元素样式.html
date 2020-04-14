@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取元素样式</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box1 = document.getElementById('box1');
+            var btn = document.getElementById('btn');
+            btn.onclick = function () {
+
+                /*
+                * 操作内联样式
+                *   语法：元素.style.样式名
+                *   注意：只能读取和修改内联样式
+                * */
+                // alert(box1.style.width) //为空
+                // box1.style.width = '300px'
+                // alert(box1.style.width) //300px
+
+                /*
+                * 获取元素当前显示的样式
+                *   1.currentStyle  仅IE浏览器支持
+                *   2.getComputedStyle()  window方法，可以直接使用,
+                *       需要传两个参数：
+                *                   1.要获取样式的元素
+                *                   2.可以传一个伪元素，一般都传null
+                *       该方法会返回对象，对象中封装了当前元素对应的样式
+                * */
+                // alert(box1.currentStyle.width)
+                // var obj = getComputedStyle(box1,null);
+                // alert(obj.width)
+
+                alert(getStyle(box1,'width'))
+            }
+
+            /*
+            * 定义一个函数，用来获取指定元素的当前的样式
+            * 参数：
+            *       obj 要获取样式的元素
+            *       name 要获取的样式名
+            * */
+            function getStyle(obj,name) {
+                if(window.getComputedStyle){
+                    //正常浏览器的方式，具有getComputedStyle方法
+                    return getComputedStyle(obj,null)[name]
+                } else{
+                    //IE8的方式，没有getComputedStyle方法
+                    return box1.currentStyle.width
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">点我一下</button>
+    <div id="box1"></div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时间绑定</title>
+</head>
+<script>
+    window.onload = function () {
+        var btn = document.getElementById('btn');
+        /*
+        * 使用对象.事件=函数的形式那定响应函数，
+            它只能同时为一个元素的一个事件绑定一一个响应函数。
+            不能那定多个。如果排定了多个，则后边会覆盖掉前边的
+        * */
+        // btn.onclick = function () {
+        //     console.log('appendChild');
+        // }
+
+        /*
+        * addEventListener()
+        * .通过这个方法也可以为元素绑定响应函数
+            1.事件的字符串，不要on
+            2.回调函数。当事件触发时该函数会被调用
+            3.是否在捕获阶段触发事件，需要一个布尔值，一般都传false
+        使用addEventListener()可以同时为一个元素的相同事件同时哪定多个响应函数，
+        这样当事件被触发时，响应函数将会按照函数的绑定顺序执行
+        *
+        * 这个方法不支持IE8及以下
+        * */
+        // btn.addEventListener('click',function () {
+        //     alert(1)
+        // },false);
+        // btn.addEventListener('click',function () {
+        //     alert(2)
+        // },false);
+        // btn.addEventListener('click',function () {
+        //     alert(3)
+        // },false);
+
+        /*
+        *在IE8中可以使用attachEvent()来绑定事件（但是正常浏览器不支持）
+            参数。
+            1.事件的字符串，要on
+            2.回调函数
+            这个方法也可以同时为一个事件绑定多个处理函数，
+            不同的是它是后绑定先执行，执行都序和addEventListener()相反
+
+        * */
+        // btn.attachEvent('onclick',function () {
+        //     alert(1)
+        // });btn.attachEvent('onclick',function () {
+        //     alert(2)
+        // });btn.attachEvent('onclick',function () {
+        //     alert(3)
+        // });
+        bind(btn,'click',function () {
+            alert(1)
+            alert(this)
+        });
+        /*
+        * 自定义一个bind函数
+        * 参数：
+        *   obj 要绑定事件的对象
+        *   eventStr 事件的字符串(不要on)
+        *   callback 回调函数
+        * */
+        function bind(obj , eventStr , callback) {
+            if(obj.addEventListener){
+                obj.addEventListener(eventStr,callback,false);  //支持正常浏览器
+            }else{
+                obj.attachEvent('on'+eventStr,function(){       //支持IE8及以下
+                    //在匿名函数中调用回调函数
+                    callback.call(obj)
+                });
+            }
+        }
+    }
+</script>
+<body>
+<button id="btn">添加一个li链接</button>
+</body>
+</html>

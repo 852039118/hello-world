@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组</title>
+    <script>
+        //创建数组,可以放任意类型：数字、数组、字符串、对象、函数....
+        var arr = [1,'wkj',[1,2,3],{name:'Warren',age:22},function () {alert('牛批')}];
+        // document.write(arr);    document.write("<br />");
+        // document.write(arr.shift());    document.write("<br />");
+        // document.write(arr.reverse());    document.write("<br />");
+
+        // arr[4]();   //调用数组里的函数
+
+        arr.push('GF');
+        arr.pop();
+
+        document.write(arr);    document.write("<br />");
+
+        document.write(arr.join("______")); document.write("<br />");
+
+        document.write(arr.sort());     document.write("<br />");
+
+        document.write(arr.slice(1));     document.write("<br />");
+
+        document.write(arr.sort());     document.write("<br />");
+
+        document.write(arr.toString());     document.write("<br />");
+        document.write(arr.toLocaleString());     document.write("<br />");
+        // document.write(arr.valueOf());     document.write("<br />");
+
+
+
+        /*方法    描述
+        concat() 连接两个或更多的数组，并返回结果。
+        join() 把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。
+        pop() 删除并返回数组的最后一个元素
+        push() 向数组的末尾添加一个或更多元素，并返回新的长度。
+        reverse() 颠倒数组中元素的顺序。
+        shift() 删除并返回数组的第一个元素
+        slice() 从某个已有的数组返回索引从 start 到 _end （不包括该元素）的元素,不影响原数组
+        sort() 对数组的元素进行排序
+        splice() 删除元素，并向数组添加新元素。更改数组  index索引，_count删除多少元素，_element1下标index处开始插入的新元素
+        toSource() 返回该对象的源代码。
+        toString() 把数组转换为字符串，并返回结果。
+        toLocaleString() 把数组转换为本地数组，并返回结果。
+        unshift() 向数组的开头添加一个或更多元素，并返回新的长度。
+        valueOf() 返回数组对象的原始值
+*/
+    </script>
+</head>
+<body>
+
+</body>
+</html>

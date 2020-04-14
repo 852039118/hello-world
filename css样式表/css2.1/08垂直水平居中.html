@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>垂直水平居中</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            position: relative;
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+            background: deeppink;
+            margin: auto;
+        }
+        #inner{
+            position: absolute;
+/*            方法一：
+            top: 50%;
+            left: 50%;
+            margin-left: -50px;
+            margin-top: -50px;*/
+
+/*            方法二：
+            top: 0;
+            right: 0;
+            bottom:0;
+            left: 0;
+            margin: auto;*/
+
+            /*方法三：不用知道本身宽高*/
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);    /*按自身宽高移动*/
+
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            background: pink;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="inner">test</div>
+</div>
+</body>
+</html>
