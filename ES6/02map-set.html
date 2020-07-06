@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>map-set</title>
+</head>
+<body>
+<script>
+    // ES6 Map
+    let map = new Map([["tom",100],["jack",90],["lucy",80]]);
+    map.delete("tom");
+    map.set("happy",60);
+    console.log(map);
+    // 遍历Map
+    for (let value of map){
+        console.log(value)
+    }
+
+    // Set 无序不重复的集合
+    let set = new Set([3,5,1,1,8]);
+    console.log(set);
+    set.add(2);
+    // console.log(set.has(2));
+    // 遍历Set
+    for (let value of set){
+        console.log(value)
+    }
+
+
+</script>
+</body>
+</html>

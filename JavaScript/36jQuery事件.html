@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <style>
+        .divMove{
+            width: 500px;
+            height: 500px;
+            border: 1px solid pink;
+        }
+    </style>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+</head>
+<body>
+    <p>
+        鼠标位置: <span id="mouseLocation"></span>
+    </p>
+    <div class="divMove">
+        在这里移动试试
+    </div>
+
+    <script>
+        // 当网页加载完毕之后，响应事件
+        $(function () {
+            console.log(1);
+            $('.divMove').mousemove(function (e) {
+                console.log(2)
+                $('#mouseLocation').text("x : " + e.pageX + " y : " + e.pageY);
+            })
+        })
+    </script>
+</body>
+</html>

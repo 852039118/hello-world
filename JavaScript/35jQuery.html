@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+</head>
+<body>
+    <!--
+        公式：$('selector').action()
+   -->
+
+    <a href="" id="test-jquery">点我</a>
+
+    <script>
+        $('#test-jquery').click(function () {
+            alert(1);
+        })
+
+        $('p').click();             // 标签选择器
+        $('#test-jquery1').click();  // id选择器
+        $('.class1').click();       // class选择器
+
+
+    </script>
+</body>
+</html>
