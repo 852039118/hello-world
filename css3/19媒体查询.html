@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>响应式布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .wrap{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            margin: 100px auto;
+        }
+        /*
+        width:浏览器窗口尺寸   (可以加 min max 前缀)
+            min-width 宽度 >= 800px
+            max-width 宽度 <= 800px
+
+        device-width:设备独立像素的宽度
+            PC端: 分辨率 1920*1080   1366*768
+            移动端: 机器参数 (iphoneX: 375*812)
+
+        -webkit-device-pixel-ratio:像素比
+            PC: 1
+            移动端: 机器参数 DPR:  2.0  3.0
+
+        orientation: 横竖屏
+            landscape: 横屏
+
+        only: 老版本浏览器可以忽略此样式
+
+        */
+        @media only screen and (orientation: landscape){
+            .wrap{
+                border: 10px solid black;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap"></div>
+</body>
+</html>

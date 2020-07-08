@@ -23,12 +23,22 @@
     <script>
         // 当网页加载完毕之后，响应事件
         $(function () {
-            console.log(1);
             $('.divMove').mousemove(function (e) {
-                console.log(2)
                 $('#mouseLocation').text("x : " + e.pageX + " y : " + e.pageY);
             })
         })
+
+
+        var person = {
+            "zhangsan":{"name":"张三","age":25,sex:"男"},
+            "lisi":{"name":"李四","age":25,sex:"女"}
+        };
+
+        person.wangwu = {"name":"王五","age":25,sex:"女"}
+
+        console.log(person);
+
+
     </script>
 </body>
 </html>
